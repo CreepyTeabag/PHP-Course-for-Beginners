@@ -1,0 +1,52 @@
+----------------- 17 -----------------
+Data types:
+INT - number (from -2 147 483 648 to 2 147 483 647) 4 bites
+INT(5) - will only show the first 5 numbers of a number
+INT(11) - the default
+
+BIGINT - a big number 8 bites
+
+FLOAT - 4 bites
+DOUBLE - basically a big float.
+
+VARCHAR(10) - string of 10 characters.
+VARCHAR(255) - the typical maximum
+
+TEXT
+
+DATE 2023-12-21 - can be formatted differently
+DATETIME 2023-12-21 20:55:10
+
+
+
+Signed and unsigned:
+INT(11) SIGNED - both positive and negative numbers
+INT(11) UNSIGNED - only the positive numbers (from 0 to 4 294 967 295)
+
+
+
+NOT NULL - the value HAS to be assigned, it's not allowed to be empty.
+AUTO_INCREMENT - it'll automatically increment each new row. It's always unsigned
+pwd - 'password'
+
+DEFAULT - the default value that'll be used if there's no data
+DEFAULT CURRENT_TIME - will automatically use time of creation. Or we could also pass in the datetime from PHP
+
+There are two ways to set the primary key:
+id INT(11) NOT NULL AUTO_INCREMENT PRIMARY,
+ or
+PRIMARY KEY (id)
+
+Primary key has to be unique. It can't have duplicates.
+
+
+This:
+users_id INT(11) NOT NULL,
+FOREIGN KEY (users_id) REFERENCES users (id) ON DELETE NO ACTION
+is how we connect two tables together. users_id in this table is equal to so id from the users table. If the user is deleted from the users table - we throw an error do not allow it to happen.
+
+FOREIGN KEY (users_id) REFERENCES users (id) ON DELETE CASCADE
+if the user is deleted from the users table - we cascade it and delete all of this user's comments.
+
+FOREIGN KEY (users_id) REFERENCES users (id) ON DELETE SET NULL
+if the user is deleted from the users table - we'll set users_id to NULL
