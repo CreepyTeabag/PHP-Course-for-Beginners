@@ -12,7 +12,7 @@
    <!-- Don't do this! It's prone to hacking -->
    <!-- <form action="<?php /*echo $_SERVER["PHP_SELF"];*/?>" method="post"> -->
 
-   <form action="includes/formhandler.php" method="post">
+   <form action="includes_6/formhandler.php" method="post">
       <label for="firstname">Firstname ?</label>
       <input id="firstname" type="text" name="firstname" placeholder="Firstname ... ">
 

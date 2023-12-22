@@ -50,3 +50,26 @@ if the user is deleted from the users table - we cascade it and delete all of th
 
 FOREIGN KEY (users_id) REFERENCES users (id) ON DELETE SET NULL
 if the user is deleted from the users table - we'll set users_id to NULL
+
+----------------- 18 -----------------
+Creating new row:
+INSERT INTO users (username, pwd, email) VALUES ('Krossing', 'test123', 'johndoe@gmail.com');
+
+Changing an existing row:
+UPDATE users SET username = 'BasseIsCool', pwd = 'basse456' WHERE id = 1;
+
+Deleting a row:
+DELETE FROM users WHERE id = 1;
+
+----------------- 19 -----------------
+INNER JOIN:
+SELECT * FROM users INNER JOIN comments ON users.id = comments.users_id;
+SELECT users.username, comments.comment_text, comments.created_at FROM users INNER JOIN comments ON users.id = comments.users_id;
+
+LEFT JOIN:
+SELECT * FROM users LEFT JOIN comments ON users.id = comments.users_id;
+here the left table (users) is the main one. So even if there are no comments, we'll get info about the user
+
+RIGHT JOIN:
+SELECT * FROM users RIGHT JOIN comments ON users.id = comments.users_id;
+Will show all the comments, but not all the users. We'll only see the users that left some comments
