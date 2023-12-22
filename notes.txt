@@ -122,3 +122,35 @@ function test() {
    echo PI;
 }
 test(); // works!
+
+----------------- 20 -----------------
+Files inside the includes/ folder aren't visible on the website.
+dbh.inc.php - database handler includes php
+dsn - data source name
+
+3 ways to connect to database:
+- MySQL connection (bad & obsolete)
+- MySQL-i connection (improved)
+- PDO - PHP data objects (more flexible)
+
+PDO will create on object to connect to DB
+
+try {
+   // we try to do something
+} catch () {
+   // if we can't and het an error - we catch the error here 
+}
+
+----------------- 22 -----------------
+Prepared statements are used for security reasons. Basically we separate the query from the data, so the query can't hut our database.
+
+We don't need to sanitize the data from the form if we're not outputting it on the page, we're going to do that later.
+
+Basically all of these take all the code from the "file.php" and pastes it here
+
+include - tries to include the file, but if it can't find it - it'll show a warning.
+include_once - tries to include the file, but if it can't find it OR if the file was already included - it'll show a warning.
+
+require_once "file.php"
+require
+are the same as include_once and include, but they'll throw a fatal error instead of a warning
