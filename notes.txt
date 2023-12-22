@@ -200,3 +200,17 @@ $options = [
 where the number is recommended to be between 10 and 12. It affects how hard it'll be for a hacker to break into the system by simply typing different passwords into the input. Basically the bigger the number - the longer the page will think, comparing the passwords
 
 password_verify($pwdLogin, $hashedPwd); // returns true if the password that the user submitted s the same as the hashed password in the database.
+
+----------------- 28 -----------------
+MVC - model, view, controller
+
+Model - querying the database, getting the data, submitting, updating, deleting data.
+
+It's important that we include model before the view and the view before the controller:
+require_once 'signup_model.inc.php';
+require_once 'signup_view.inc.php';
+require_once 'signup_contr.inc.php';
+
+In controller we grab some user data and do something with it.
+
+filter_var($email, FILTER_VALIDATE_EMAIL) is a built- in function that checks if the email is valid.
