@@ -1,12 +1,12 @@
 ----------------- 17 -----------------
 Data types:
-INT - number (from -2 147 483 648 to 2 147 483 647) 4 bites
+INT - number (from -2 147 483 648 to 2 147 483 647) 4 bytes
 INT(5) - will only show the first 5 numbers of a number
 INT(11) - the default
 
-BIGINT - a big number 8 bites
+BIGINT - a big number 8 bytes
 
-FLOAT - 4 bites
+FLOAT - 4 bytes
 DOUBLE - basically a big float.
 
 VARCHAR(10) - string of 10 characters.

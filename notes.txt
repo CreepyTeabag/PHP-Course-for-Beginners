@@ -154,3 +154,49 @@ include_once - tries to include the file, but if it can't find it OR if the file
 require_once "file.php"
 require
 are the same as include_once and include, but they'll throw a fatal error instead of a warning
+
+----------------- 25 -----------------
+Information about the session is remembered across all the pages of a website.
+
+Starting the session:
+session_start();
+
+Setting a cookie:
+$_SESSION["username"] = "Krossing";
+
+Deleting a certain cookie:
+unset($_SESSION["username"]);
+
+Deleting all cookies:
+session_unset();
+
+Deleting the session (but it won't work if we reload the page. It only works when we redirect onto a different page):
+session_destroy();
+
+So sometimes it's better to use both:
+session_unset();
+session_destroy();
+
+Session ID stored both on the client side (as a cookie) and on the server. It's needed to basically create a link between the user and the server.
+
+----------------- 26 -----------------
+Session security.
+It's super important to not let anyone steal our session's data. So we need to use session ID and refresh it from time to time.
+
+----------------- 27 -----------------
+Hashing turns a password into a hashed string, which is basically unreadable, so is safe to keep int the database.
+"Salt" is something you feed into the hashing algorithm together with the info that you need to hash. The algorithm will use "salt" to make the hashing even more complex and secure.
+
+To hash the password, you can use 
+password_hash($pwd, PASSWORD_DEFAULT);
+   or
+password_hash($pwd, PASSWORD_BCRYPT, $options); // - this one is usually used.
+$pwd - the password
+PASSWORD_BCRYPTED - method of hashing the password
+$option - an array like this one:
+$options = [
+   'cost' => 12
+];
+where the number is recommended to be between 10 and 12. It affects how hard it'll be for a hacker to break into the system by simply typing different passwords into the input. Basically the bigger the number - the longer the page will think, comparing the passwords
+
+password_verify($pwdLogin, $hashedPwd); // returns true if the password that the user submitted s the same as the hashed password in the database.
