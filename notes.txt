@@ -214,3 +214,17 @@ require_once 'signup_contr.inc.php';
 In controller we grab some user data and do something with it.
 
 filter_var($email, FILTER_VALIDATE_EMAIL) is a built- in function that checks if the email is valid.
+
+
+----------------- OOP notes -----------------
+In a class  a property is ~= variable, a method ~= function. (Not really, but they're a bit alike.)
+Property - information about the object.
+Method - does something related to the object.
+
+Visibility modifier - access rights.
+
+private - only this class has access to this info.
+protected - this class and a child class that extends this class has access to this property.
+public - everyone has access to this property.
+
+The rule of thumb is to make properties public ONLY if we have a reason to do so. So it's better to start with all properties being private and then change it if needed.
